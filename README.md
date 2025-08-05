@@ -14,7 +14,7 @@ Este proyecto nace de la necesidad de optimizar la comunicación del rendimiento
 
 Para una guía detallada paso a paso, con capturas de pantalla y diagramas, por favor consulta el manual completo en PDF:
 
-➡️ **[Ver la Guía de Usuario Completa en PDF (Recomendado para principiantes)](./Gu%C3%ADa%20de%20Usuario_%20Asistente%20Autom%C3%A1tico%20de%20Calificaciones%20v3.1%20(1).pdf)**
+➡️ **[Ver la Guía de Usuario Completa en PDF (Recomendado para principiantes)](./Gu%C3%ADa%20de%20Usuario_%20Asistente%20Autom%C3%A1tico%20de%20Calificaciones%20v3.1.pdf)**
 
 ---
 
