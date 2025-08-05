@@ -8,6 +8,16 @@ Un sistema basado en Google Apps Script diseñado para automatizar el envío de 
 
 Este proyecto nace de la necesidad de optimizar la comunicación del rendimiento académico a los estudiantes. El sistema permite a los profesores, con una configuración inicial mínima, enviar correos electrónicos personalizados y detallados que incluyen tablas de notas, gráficos de progreso y mensajes contextuales basados en el desempeño del estudiante.
 
+---
+
+### 📖 Guía Visual Completa
+
+Para una guía detallada paso a paso, con capturas de pantalla y diagramas, por favor consulta el manual completo en PDF:
+
+➡️ **[Ver la Guía de Usuario Completa en PDF (Recomendado para principiantes)](./Gu%C3%ADa%20de%20Usuario_%20Asistente%20Autom%C3%A1tico%20de%20Calificaciones%20v3.1%20(1).pdf)**
+
+---
+
 ## ✨ Características Principales
 
 - **📧 Notificaciones Personalizadas:** Envía correos únicos a cada estudiante con su progreso detallado.
