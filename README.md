@@ -29,7 +29,7 @@ Este proyecto nace de la necesidad de optimizar la comunicación del rendimiento
 Para utilizar este sistema, solo necesitas hacer una copia de la plantilla de Google Sheets, que ya contiene todo el código del asistente.
 
 1.  **Crear tu Propia Copia de la Hoja**
-    * **[HAZ CLIC AQUÍ PARA CREAR TU PROPIA COPIA DE LA HOJA DE PLANTILLA](https://docs.google.com/spreadsheets/d/1C_5Hez9VQD8Uv5zTGe6BLQTV1LOMx80oVF23oQ4A8YA/edit?usp=sharing)** 
+    * <a href="https://docs.google.com/spreadsheets/d/1C_5Hez9VQD8Uv5zTGe6BLQTV1LOMx80oVF23oQ4A8YA/copy" target="_blank">HAZ CLIC AQUÍ PARA CREAR TU PROPIA COPIA DE LA HOJA DE PLANTILLA</a>
 
 2.  **Configurar el Script**
     * Una vez que tengas tu copia, ábrela y ve al menú `Extensiones > Apps Script`.
