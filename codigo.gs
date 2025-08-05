@@ -11,10 +11,10 @@
 //                CONFIGURACIÓN PRINCIPAL
 // =================================================================
 const CONFIG = {
-  NOMBRE_PROFESOR: "Daniel Acevedo",
-  NOMBRE_ASIGNATURA: "Procesos de Fabricacion 1",
-  EMAIL_PROFESOR: "dacevedo@unexpo.edu.ve",
-  TELEGRAM_BOT_TOKEN: "7544812313:AAFnjWiBqScjEThnU3UNUpFNOd7xIaieXQs", // <-- ¡NUEVO! Token de tu bot.
+  NOMBRE_PROFESOR: "Nombre Profesor",
+  NOMBRE_ASIGNATURA: "Nombre Asignatura",
+  EMAIL_PROFESOR: "emailprofesor@unexpo.edu.ve",
+  TELEGRAM_BOT_TOKEN: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxs", // <-- ¡NUEVO! Token de tu bot.
   
   NOMBRE_HOJA: "Hoja 1",
   FILA_ENCABEZADOS: 1,
@@ -29,13 +29,13 @@ const CONFIG = {
   COL_TELEGRAM_ID: 15, // <-- ¡NUEVO! Asegúrate de que este sea el número de tu nueva columna.
   
   COLUMNAS_CALIFICACIONES: [5, 6, 7, 8, 9, 10, 11],
-  COLUMNAS_RESTANTES: [11], 
+  COLUMNAS_RESTANTES: [9, 10, 11], 
   
   UMBRAL_APROBACION: 50,
   UMBRAL_BUEN_ESTADO: 65,
   
   MODO_PRUEBA: true, 
-  EMAIL_PRUEBA: "acevedod1974@gmail.com"
+  EMAIL_PRUEBA: "emailprueba@gmail.com"
 };
 
 // ... [Las funciones onOpen, onEdit, doPost, enviarCorreosPendientes no cambian] ...
