@@ -1,77 +1,54 @@
-# Sistema de Gestión Académica y Notificaciones (V6.1)
+# Asistente Automático de Calificaciones para Profesores
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Un sistema avanzado basado en Google Apps Script para automatizar la gestión académica, el envío de reportes de progreso y el análisis de datos en tiempo real, integrado con Google Sheets, AppSheet y Telegram.
+Un sistema basado en Google Apps Script diseñado para automatizar el envío de reportes de progreso a estudiantes, integrándose con Google Sheets, AppSheet y Looker Studio para un flujo de trabajo completo.
 
 ## Descripción
 
-Este proyecto optimiza la comunicación del rendimiento académico. Permite a los profesores enviar correos electrónicos personalizados (HTML) y notificaciones de Telegram con un solo clic. A diferencia de sistemas tradicionales, este script incluye un **Dashboard Inteligente** que calcula el rendimiento real del estudiante basándose solo en las evaluaciones ya realizadas, evitando promedios engañosos al inicio del semestre.
+Este proyecto nace de la necesidad de optimizar la comunicación del rendimiento académico a los estudiantes. El sistema permite a los profesores, con una configuración inicial mínima, enviar correos electrónicos personalizados y detallados que incluyen tablas de notas, gráficos de progreso y mensajes contextuales basados en el desempeño del estudiante.
 
----
+## ✨ Características Principales
 
-### 📖 Guía Visual
+- **📧 Notificaciones Personalizadas:** Envía correos únicos a cada estudiante con su progreso detallado.
+- **📊 Reportes Visuales:** Incluye en cada correo una tabla con el historial de notas y un gráfico de barras comparativo.
+- **🕹️ Control Total del Envío:** Utiliza un menú personalizado en Google Sheets y un botón en AppSheet para que el profesor decida exactamente cuándo enviar las notificaciones.
+- **📱 Integración con AppSheet:** Permite crear una aplicación móvil/web para una entrada de datos más amigable y para activar envíos individuales sobre la marcha.
+- **📈 Reporte Semestral:** Una función para enviar un correo masivo a toda la clase con un análisis de su proyección final y mensajes de motivación o alerta.
+- **🤖 Integración con Telegram:** Envío opcional de notificaciones instantáneas a través de un Bot de Telegram.
 
-Para una referencia visual, puedes consultar el manual base (nota: las funciones V6.1 como el Dashboard son nuevas y se explican abajo):
+## 🛠️ Estructura del Código (Refactorizado)
 
-➡️ **[Ver la Guía de Usuario en PDF](./Gu%C3%ADa%20de%20Usuario_%20Asistente%20Autom%C3%A1tico%20de%20Calificaciones%20v3.1.pdf)**
+El proyecto ha sido modularizado para facilitar su mantenimiento:
 
----
+- `Config.gs`: Contiene todas las constantes de configuración (columnas, nombres, umbrales) y gestión de propiedades.
+- `UI.gs`: Maneja el menú personalizado, los disparadores (`onEdit`, `doPost`) y el Dashboard de estadísticas.
+- `Email.gs`: Contiene la lógica central para el envío de correos individuales y masivos.
+- `Helpers.gs`: Funciones de utilidad para cálculos matemáticos, formateo de números y generación de componentes HTML.
 
-## ✨ Características Principales (Versión 6.1)
+## 🚀 Guía de Instalación (Getting Started)
 
-### 🧠 Inteligencia y Análisis
--   **🖥️ Dashboard del Profesor:** Un panel de control visual (Google Charts) que muestra:
-    -   **Velocímetro de Salud:** Estado general del grupo en tiempo real.
-    -   **Gráfico de Barras:** Promedios por evaluación (coloreados dinámicamente según rendimiento).
-    -   **Lista de Riesgo:** Tabla automática con estudiantes que tienen un rendimiento real < 50%.
--   **📊 Cálculo de Rendimiento Real:** El sistema detecta automáticamente qué evaluaciones ya han ocurrido y calcula el porcentaje del alumno sobre esa base (ej. *45/50 puntos evaluados = 90%*), en lugar de diluirlo sobre el total del semestre.
+Para utilizar este sistema, solo necesitas hacer una copia de la plantilla de Google Sheets, que ya contiene todo el código del asistente configurado.
 
-### 📧 Comunicación
--   **📝 Notas Personalizadas:** Escribe un mensaje específico en la **Columna P** (`MENSAJE_PERSONALIZADO`) y el sistema lo insertará automáticamente en el correo de ese estudiante como una "Nota del Profesor" destacada.
--   **📨 Reportes Duales:** Envía correos HTML detallados (con tablas y gráficos de progreso) y alertas instantáneas a **Telegram**.
--   **🔄 Modo Prueba Dinámico:** Activa o desactiva el envío de correos reales desde el menú `📧 Notificaciones` sin tocar el código.
-
-### 🖨️ Utilidades
--   **Impresión de Reportes:** El Dashboard incluye una vista optimizada para imprimir o guardar como PDF limpio.
-
-## 🛠️ Tecnologías Utilizadas
-
--   **Backend:** Google Apps Script
--   **Frontend:** HTML5 / CSS3 (para correos y dashboard)
--   **Datos:** Google Sheets
--   **Visualización:** Google Charts API
--   **Mensajería:** Gmail API & Telegram Bot API
-
-## 🚀 Guía de Instalación Rápida
-
-1.  **Obtener la Plantilla**
+1.  **Crear tu Propia Copia de la Hoja**
     * <a href="https://docs.google.com/spreadsheets/d/1C_5Hez9VQD8Uv5zTGe6BLQTV1LOMx80oVF23oQ4A8YA/copy" target="_blank">HAZ CLIC AQUÍ PARA CREAR TU PROPIA COPIA DE LA HOJA DE PLANTILLA</a>
 
-2.  **Configuración Inicial**
-    * Abre tu copia y ve al menú `Extensiones > Apps Script`.
-    * En `CONFIGURACIÓN PRINCIPAL`, ajusta tu nombre, asignatura y verifica los mapeos de columnas si cambias el diseño de la hoja.
+2.  **Configurar el Script**
+    * Una vez que tengas tu copia, ábrela y ve al menú `Extensiones > Apps Script`.
+    * Abre el archivo `Config.gs`.
+    * Modifica las variables `NOMBRE_PROFESOR`, `NOMBRE_ASIGNATURA`, `EMAIL_PROFESOR`, y verifica que los números de las columnas (`COL_...`) coincidan con tu hoja.
+    * **Importante:** Configura `MODO_PRUEBA: true` y tu `EMAIL_PRUEBA` para realizar pruebas de forma segura.
 
-3.  **Configurar Telegram (Opcional pero recomendado)**
-    * Refresca la hoja de cálculo (F5).
-    * Ve al menú `📧 Notificaciones > 🔐 Configurar Token Telegram`.
-    * Pega el Token de tu bot.
+3.  **Autorizar el Script**
+    * Refresca tu hoja de cálculo. Aparecerá un nuevo menú `📧 Notificaciones`.
+    * La primera vez que hagas clic en una de sus opciones (ej. `Enviar Correos Pendientes`), Google te pedirá que autorices el script. Sigue los pasos y concede los permisos necesarios.
 
-## 📋 Cómo Usar las Nuevas Funciones
+## 📋 Uso
 
-### 1. Ver Estadísticas del Grupo
-Ve al menú `📧 Notificaciones > 📊 Ver Estadísticas del Grupo`. Se abrirá una ventana emergente con los gráficos de rendimiento y la lista de alumnos en riesgo. Puedes usar el botón "Imprimir" para generar un PDF del estado actual.
+El sistema tiene dos flujos de trabajo principales:
 
-### 2. Enviar Mensajes Personalizados
-Si quieres decirle algo específico a un alumno (ej. *"Excelente mejora en el ensayo"*):
-1.  Ve a la columna **P** (`MENSAJE_PERSONALIZADO`).
-2.  Escribe tu mensaje en la fila del estudiante.
-3.  Al enviar el reporte (Individual o Semestral), este texto aparecerá en un recuadro amarillo destacado dentro del correo.
-
-### 3. Modo Prueba
-Usa el menú `📧 Notificaciones > 🔄 Alternar Modo Prueba` para cambiar entre:
-* 🟢 **ACTIVO:** Los correos llegan a TI (para verificar que todo se ve bien).
-* 🔴 **INACTIVO:** Los correos se envían a los ESTUDIANTES reales.
+- **Envío por Lote (desde Google Sheets):** Introduce las calificaciones en la hoja. Las filas modificadas se marcarán como "Pendiente". Usa el menú `📧 Notificaciones > Enviar Correos Pendientes` para enviar todos los reportes de una vez.
+- **Envío Individual (desde AppSheet):** Crea una app desde `Extensiones > AppSheet`. Configura un `Bot` en la sección `Automation` para que llame al script como un `webhook`. Esto te permitirá enviar notificaciones individuales desde un botón en la app de tu teléfono.
 
 ## 📄 Licencia
 
@@ -80,4 +57,5 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 ## ✨ Agradecimientos
 
 -   **Creado por:** Daniel Acevedo
+-   **Asistente de Desarrollo IA:** Google Gemini
 -   **Desarrollo Asistido por:** Google Gemini
