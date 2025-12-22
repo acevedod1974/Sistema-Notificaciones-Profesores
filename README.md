@@ -58,4 +58,3 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 -   **Creado por:** Daniel Acevedo
 -   **Asistente de Desarrollo IA:** Google Gemini
--   **Desarrollo Asistido por:** Google Gemini
